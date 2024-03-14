@@ -1,0 +1,22 @@
+CSS 
+.container {
+  width: 80px;
+  height: 400px;
+}
+
+.green {
+  background-color: green;
+}
+
+.white {
+  background-color: white;
+}
+
+.red {
+  background-color: red;
+}
+Html
+
+<div class="container green"></div>
+<div class="container white"></div>
+<div class="container red"></div>
