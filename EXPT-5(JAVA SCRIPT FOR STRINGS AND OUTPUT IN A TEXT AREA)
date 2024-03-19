@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>String Operations</title>
+</head>
+<body>
+
+<h3>String Input</h3>
+<textarea id="string-input" rows="4" cols="50"></textarea>
+<button onclick="outputBStrings()">Output Strings Starting with 'b'</button>
+<br>
+<button onclick="countOccurrences()">Count Occurrences of Each Letter</button>
+<h3>Results</h3>
+<div id="output"></div>
+
+<script>
+  function outputBStrings() {
+    const input = document.getElementById('string-input').value;
+    const strings = input.split('\n');
+    const bStrings = strings.filter(str => str.trim().toLowerCase().startsWith('b'));
+    document.getElementById('output').innerText = "Strings starting with 'b':\n" + bStrings.join('\n');
+  }
+
+  function countOccurrences() {
+    const input = document.getElementById('string-input').value.toLowerCase();
+    const charCount = {};
+    for (let char of input) {
+      if (char.match(/[a-z]/i)) {
+        charCount[char] = (charCount[char] || 0) + 1;
+      }
+    }
+    let output = 'Occurrences of each letter:\n';
+    for (let char in charCount) {
+      output += char + ': ' + charCount[char] + '\n';
+    }
+    document.getElementById('output').innerText = output;
+  }
+</script>
+
+</body>
+</html>
