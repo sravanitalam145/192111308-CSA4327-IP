@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Append Image Element</title>
+</head>
+<body>
+
+<button id="create-img-btn">Create Image</button>
+
+<script>
+  // Function to create and append <img> element
+  function createAndAppendImage() {
+    // Create the <img> element
+    const imgElement = document.createElement('img');
+
+    // Set attributes for the image (src, alt, etc.)
+    imgElement.src = 'https://via.placeholder.com/150'; // Placeholder image URL
+    imgElement.alt = 'Placeholder Image';
+
+    // Append the <img> element to the document body
+    document.body.appendChild(imgElement);
+  }
+
+  // Event listener for the button click
+  const createImgBtn = document.getElementById('create-img-btn');
+  createImgBtn.addEventListener('click', createAndAppendImage);
+</script>
+
+</body>
+</html>
