@@ -1,0 +1,37 @@
+@WebServlet("/myFormServlet")
+public class MyFormServlet extends HttpServlet {
+
+    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        // Set the content type of the response
+        response.setContentType("text/html");
+
+        // Get the print writer to write the response
+        PrintWriter out = response.getWriter();
+
+        // Get the values from the form
+        String textFieldValue = request.getParameter("textFieldName");
+        String radioButtonValue = request.getParameter("radioButtonName");
+        String[] checkboxValues = request.getParameterValues("checkboxName");
+        String dropdownMenuValue = request.getParameter("dropdownMenuName");
+
+        // Print the values to the response
+        out.println("<html><body>");
+        out.println("Text Field Value: " + textFieldValue);
+        out.println("Radio Button Value: " + radioButtonValue);
+        out.println("Checkbox Values: ");
+        if (checkboxValues != null) {
+            for (String value : checkboxValues) {
+                out.println(value + " ");
+            }
+        }
+        out.println("Dropdown Menu Value: " + dropdownMenuValue);
+        out.println("</body></html>");
+    }
+}
+html:
+<form action="/myFormServlet" method="get">
+    <label for="textFieldName">Text Field:</label><br>
+    <input type="text" id="textFieldName" name="textFieldName"><br>
+
+    <input type="radio" id="radioButtonName1" name="radioButtonName" value="value1">
+    <label for="radioButtonName1">Value 1</label><br>
