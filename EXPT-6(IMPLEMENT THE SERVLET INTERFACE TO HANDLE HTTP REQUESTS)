@@ -1,0 +1,37 @@
+
+import javax.servlet.*;
+import javax.servlet.http.*;
+import java.io.*;
+
+public class MyServlet implements Servlet {
+    
+    private ServletConfig config;
+
+    public void init(ServletConfig config) throws ServletException {
+        this.config = config;
+        // Initialization code here
+    }
+
+    public void service(ServletRequest request, ServletResponse response) throws ServletException, IOException {
+        // Service logic here
+        response.setContentType("text/html");
+        PrintWriter out = response.getWriter();
+        out.println("<html><body>");
+        out.println("<h1>Hello World!</h1>");
+        out.println("</body></html>");
+    }
+
+    public void destroy() {
+        // Cleanup code here
+    }
+
+    // Other methods of the Servlet interface can be implemented as needed
+
+    public ServletConfig getServletConfig() {
+        return this.config;
+    }
+
+    public String getServletInfo() {
+        return "MyServlet";
+    }
+}
